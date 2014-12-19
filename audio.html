@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Home</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--   <link rel="stylesheet" href="main.css"> -->
+</head>
+
+<body>
+  <div class="site-wrapper">
+    <div class="canvas" id="canvas">
+
+      <!-- Site Header -->
+      <header role="banner">
+        <h1 class="page-title">Home</h1>
+      </header>
+
+      <!-- Main Navigation -->
+      <nav role="navigation">
+        <h3>Travel</h3>
+        <ul>
+          <li><a class="home" href="/#/">Home</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <main role="main"  ng-controller="HomeCtr as home" ui-view>
+        <!-- UI-View Insert -->
+        <wave freq="440" type="square"></wave>
+        <wave freq="554.37" type="sine"></wave>
+      </main>
+
+    </div>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.11/angular-ui-router.min.js"></script>
+  <script>
+  var app = angular.module('app', [
+      'ui.router'
+  ]);
+
+
+    angular
+        .module('app')
+        .controller('HomeCtr', HomeCtr);
+
+    function HomeCtr($scope) {
+
+    }
+
+angular
+    .module('app')
+    .directive('wave', Wave);
+
+    function Wave() {
+        var directive = {
+            restrict: 'E',
+            template: '<input type="number" ng-model="freq" ng-change="updateOcs()"><input ng-model="volume" ng-change="changeVol()" type="range" min="0" max="1" step="0.1" /><button ng-click="startOcs()">Start</button><button ng-click="stopOcs()">Stop</button>',
+            scope: {},
+            link: link
+        }
+
+        return directive;
+
+        function link(scope, elem, attrs) {
+          scope.freq = parseInt(attrs.freq) || 440;
+          scope.vol = parseInt(attrs.volume) || 0.3;
+          scope.type = attrs.type || 'sine';
+
+
+          // Sine wave is type = “sine”
+          // Square wave is type = “square”
+          // Sawtooth wave is type = “saw”
+          // Triangle wave is type = “triangle”
+          // Custom wave is type = “custom”
+
+          scope.initializeOcs = function() {
+
+            scope.context = new AudioContext();
+
+            scope.oscillator = scope.context.createOscillator();
+            scope.oscillator.frequency.value = scope.freq;
+            scope.oscillator.type = scope.type;
+            scope.gainNode = scope.context.createGain();
+
+            scope.oscillator.connect(scope.gainNode);
+            scope.gainNode.connect(scope.context.destination);
+            scope.gainNode.gain.value = scope.vol;
+          }
+
+          scope.startOcs = function() {
+
+            var num = 1;
+
+
+            console.log('start osc');
+            scope.oscillator.start();
+          }
+          scope.stopOcs = function() {
+            scope.oscillator.stop();
+            scope.initializeOcs();
+          }
+
+          scope.changeVol = function() {
+            scope.gainNode.gain.value = scope.volume;
+          }
+
+
+          scope.updateOcs = function() {
+            console.log('changed');
+            scope.oscillator.frequency.value = scope.freq;
+          }
+
+           scope.initializeOcs();
+        }
+    };
+
+
+
+  </script>
+  </body>
+</html>
