@@ -1,0 +1,149 @@
+// base = #3f51b5
+// accent = #5af158
+// cancel = #e51c23
+
+base = #2AD9FE
+accent = #54BC12
+cancel = #EC4C66
+text = #CBCCD0
+bg = #191A1E
+card = #212227
+
+body
+	background bg
+	color text 
+	font-weight 300 
+	font-family: 'Roboto', sans-serif;
+	margin 0
+	padding 0
+
+a, a:visited
+	color accent
+	text-decoration none 
+
+header
+	background card
+	box-shadow 1px 1px 3px rgba(black, 0.3)
+	color bg  
+	padding 40px
+	text-align center 
+	.site-title
+		font-weight 100 
+		margin 0
+		color text  
+		sub
+			font-size 14px 
+
+.page-title
+	text-align center
+	font-weight 100  
+
+nav
+	ul
+		margin 0
+		padding 0 
+	li
+		margin 0
+		padding 0
+
+.at-btn
+	background #FFF 
+	
+.at-wave
+	background card 
+	box-shadow 1px 1px 3px rgba(black, 0.3)
+	display: inline-block;
+	padding: 20px;
+	margin-bottom 10px  
+
+.at-play, .at-stop
+	-webkit-appearance: none;
+	border: none;
+	line-height: 0;
+	background transparent
+	transition background .4s ease
+	border 1px solid text 
+	border-radius 2px 
+	width: 48%;
+	path
+		fill text
+	&:active
+		background base 
+
+.at-note-toggle
+	border none  
+	opacity 0.3 
+	background transparent 
+	&.active
+		opacity 1
+		path
+			fill base
+	path
+		fill text
+
+
+.at-wave-controls
+	label
+		svg
+			position relative
+			top 9px
+			fill text
+	.at-volume
+		margin 35px 0	
+	 
+input[type=range]{
+    -webkit-appearance: none;
+    width 150px 
+    background transparent 
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: base;
+    box-shadow 0 0 0 2px rgba(base, 0.3)
+    margin-top: -8px;
+    transition all 0.2s ease
+}
+
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+input[type=range]:focus::-webkit-slider-thumb {
+    box-shadow 0 0 0 6px rgba(base, 0.3)
+}
+
+input[type=number]
+	box-shadow 1px 1px 3px rgba(black, 0.2) inset
+	font-size: 16px;
+	font-weight: bold;
+	-webkit-appearance: none;
+	border: none;
+	border-bottom: 2px solid base;
+	padding: 7px 10px;
+	width: 70px;
+
+
+select
+	-webkit-appearance: none;
+	border-radius: 4px;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 7px 10px;
