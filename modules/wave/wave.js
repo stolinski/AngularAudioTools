@@ -2,7 +2,14 @@ angular
     .module('app')
     .directive('wave', Wave);
 
-function Wave() {
+angular.module('app')
+    .service('AudioContextSvc', AudioContextSvc);
+
+function AudioContextSvc() {
+    this.context = new AudioContext();
+};
+
+function Wave(AudioContextSvc) {
     var directive = {
         restrict: 'E',
         templateUrl: '/modules/wave/wave.html',
@@ -17,6 +24,7 @@ function Wave() {
         scope.volume = parseFloat(attrs.volume) || 0.3;
 
         scope.noteToggle = true;
+        scope.playToggle = false;
 
         scope.types = [
             'sine',
@@ -33,33 +41,27 @@ function Wave() {
 
         scope.type = attrs.type || scope.types[0];
 
-        console.log(scope.type);
+        console.log(AudioContextSvc.context);
 
-        scope.initializeOcs = function() {
+        var init = function() {
 
-            scope.context = new AudioContext();
-
-            scope.oscillator = scope.context.createOscillator();
+            scope.oscillator = AudioContextSvc.context.createOscillator();
             scope.oscillator.frequency.value = scope.freq;
             scope.oscillator.type = scope.type;
-            scope.gainNode = scope.context.createGain();
+            scope.gainNode = AudioContextSvc.context.createGain();
 
             scope.oscillator.connect(scope.gainNode);
-            scope.gainNode.connect(scope.context.destination);
+            scope.gainNode.connect(AudioContextSvc.context.destination);
             scope.gainNode.gain.value = scope.volume;
-        }
+        };
 
         scope.startOcs = function() {
-
-            var num = 1;
-
-            console.log('start osc');
+            init();
             scope.oscillator.start();
         }
 
         scope.stopOcs = function() {
             scope.oscillator.stop();
-            scope.initializeOcs();
         }
 
         scope.changeVol = function() {
@@ -75,7 +77,6 @@ function Wave() {
             console.log('changed');
             scope.oscillator.type = scope.type;
         }
-
-        scope.initializeOcs();
+        init();
     }
 };

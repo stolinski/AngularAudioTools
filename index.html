@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/at-ui/main.css">
 </head>
 
-<body>
+<body class="docs">
   <div class="site-wrapper">
     <div class="canvas" id="canvas">
 
@@ -29,6 +29,47 @@
       <main role="main"  ng-controller="HomeCtr as home" ui-view>
         <!-- UI-View Insert -->
         <h2 class="page-title">Audio Tools Overview</h2>
+
+        <h3>Directives</h3>
+        <ul>
+          <li><a href="#wave">Wave</a></li>
+        </ul>
+
+        <article id="wave">
+          <h4>Wave</h4>  
+          <p>
+            The wave directive produces a single wave, capable of being modified and turned on or off.
+          </p>
+          <h5>Attributes</h5>
+          <table>
+            <tr>
+              <th>Attribute</th>
+              <th>Values</th>
+              <th>Example</th>
+            </tr>
+            <tr>
+              <td>freq</td>
+              <td>Any frequency value</td>
+              <td>freq="440.00"</td>
+            </tr>
+            <tr>
+              <td>volume</td>
+              <td>Value between 0.0 and 1.0</td>
+              <td>volume="0.3"</td>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>sine, square, saw or triangle</td>
+              <td>type="sine"</td>
+            </tr>            
+            <tr>
+              <td>note</td>
+              <td>The note of the wave</td>
+              <td>note="A4"</td>
+            </tr>
+          </table>
+        </article>
+        
       </main>
 
     </div>

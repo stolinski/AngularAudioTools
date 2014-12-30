@@ -24,3 +24,23 @@ gulp.task('watch:css', function() {
 
 // Dev task fires css and js watch tasks
 gulp.task('dev', ['watch:css']);
+
+
+gulp.task('js', function() {
+    gulp.src(['ng/module.js', 'ng/**/*.js'])
+        .pipe(ngAnnotate())
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest('assets'));
+});
+
+gulp.task('css', function() {
+    gulp.src('stylus/main.styl')
+        .pipe(stylus({
+            use: [jeet(), rupture(), typographic()]
+        }))
+        .pipe(gulp.dest('assets'));
+});
+
+gulp.task('watch:js', ['js'], function() {
+    gulp.watch('ng/**/*.js', ['js']);
+});
