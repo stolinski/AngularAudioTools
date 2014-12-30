@@ -12,7 +12,7 @@ function AudioContextSvc() {
 function Wave(AudioContextSvc) {
     var directive = {
         restrict: 'E',
-        templateUrl: '/modules/wave/wave.html',
+        templateUrl: 'wave.html',
         scope: {},
         link: link
     }
