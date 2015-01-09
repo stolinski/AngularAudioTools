@@ -9,6 +9,14 @@ text = #CBCCD0
 bg = #191A1E
 card = #212227
 
+cf()
+  zoom 1
+  &:after
+  &:before
+    content ""
+    display table
+  &:after
+    clear both
 
 *
 	-webkit-box-sizing border-box 
@@ -24,21 +32,26 @@ body
 	padding 0
 
 a, a:visited
-	color accent
+	color base
 	text-decoration none 
 
 header
 	background card
 	box-shadow 1px 1px 3px rgba(black, 0.3)
 	color bg  
-	padding 40px
+	padding 20px 5%
 	text-align center 
+	cf()
 	.site-title
 		font-weight 100 
-		margin 0
-		color text  
+		margin 0 40px 0 0
+		color text 
+		float left
 		sub
-			font-size 14px 
+			font-size 12px
+			margin-left 10px
+	nav
+		float left 
 
 .page-title
 	text-align center
@@ -48,54 +61,14 @@ nav
 	ul
 		margin 0
 		padding 0 
+		list-style none
 	li
+		float left
 		margin 0
 		padding 0
-
-.at-btn
-	background #FFF 
-	
-.at-wave
-	background card 
-	box-shadow 1px 1px 3px rgba(black, 0.3)
-	display: inline-block;
-	padding: 20px;
-	margin-bottom 10px  
-
-.at-play, .at-stop
-	-webkit-appearance: none;
-	border: none;
-	line-height: 0;
-	background transparent
-	transition background .4s ease
-	border 1px solid text 
-	border-radius 2px 
-	width: 100%;
-	path
-		fill text
-	&:active
-		background base 
-
-.at-note-toggle
-	border none  
-	opacity 0.3 
-	background transparent 
-	&.active
-		opacity 1
-		path
-			fill base
-	path
-		fill text
-
-
-.at-wave-controls
-	label
-		svg
-			position relative
-			top 9px
-			fill text
-	.at-volume
-		margin 35px 0	
+	a
+		display block
+		padding 10px 20px 
 	 
 input[type=range]{
     -webkit-appearance: none;
@@ -162,3 +135,18 @@ select
 		padding 20px
 		width 80%
 		margin 40px auto
+		
+table
+	margin 20px auto
+	border-collapse collapse
+	text-align left
+	box-shadow 1px 1px 3px rgba(black, 0.2)
+	td, th
+		border 1px solid #FFF 
+		padding 10px 30px
+	tr
+		&:nth-child(odd)
+			background #eee 
+		
+		
+@import at-ui

@@ -1,0 +1,44 @@
+.at-btn
+	background #FFF 
+	
+.at-wave
+	background card 
+	box-shadow 1px 1px 3px rgba(black, 0.3)
+	display: inline-block;
+	padding: 20px;
+	margin-bottom 10px  
+
+.at-play, .at-stop
+	-webkit-appearance: none;
+	border: none;
+	line-height: 0;
+	background transparent
+	transition background .4s ease
+	border 1px solid text 
+	border-radius 2px 
+	width: 100%;
+	path
+		fill text
+	&:active
+		background base 
+
+.at-note-toggle
+	border none  
+	opacity 0.3 
+	background transparent 
+	&.active
+		opacity 1
+		path
+			fill base
+	path
+		fill text
+
+
+.at-wave-controls
+	label
+		svg
+			position relative
+			top 9px
+			fill text
+	.at-volume
+		margin 35px 0	

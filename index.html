@@ -20,7 +20,9 @@
         <!-- Main Navigation -->
         <nav role="navigation">
           <ul>
-            <li><a class="home" href="/#/">Home</a></li>
+            <li><a class="home" href="/#top">Home</a></li>
+            <li><a href="#synth">Synthesis</a></li>
+            <li><a href="#audio">Audio Playback</a></li>
           </ul>
         </nav>
       </header>
@@ -29,17 +31,19 @@
       <main role="main"  ng-controller="HomeCtr as home" ui-view>
         <!-- UI-View Insert -->
         <h2 class="page-title">Audio Tools Overview</h2>
-
-        <h3>Directives</h3>
+        
+        <h3>Synthesis</h3>
+        <h4>Directives</h4>
         <ul>
-          <li><a href="demo/">Wave</a></li>
+          <li><a href="#wave">Wave</a></li>
         </ul>
 
         <article id="wave">
-          <h4>Wave</h4>  
+          <h5>Wave</h5>
           <p>
             The wave directive produces a single wave, capable of being modified and turned on or off.
           </p>
+          <a href="demo/wave.html" class="btn">Demo</a>
           <h5>Attributes</h5>
           <table>
             <tr>
