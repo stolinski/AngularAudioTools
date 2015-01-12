@@ -26,56 +26,65 @@
           </ul>
         </nav>
       </header>
+      <div class="main-wrapper">
+        <!-- Main Content -->
+        <main role="main"  ng-controller="HomeCtr as home" ui-view>
+          <!-- UI-View Insert -->
+          <h2 class="page-title">Audio Tools Overview</h2>
 
-      <!-- Main Content -->
-      <main role="main"  ng-controller="HomeCtr as home" ui-view>
-        <!-- UI-View Insert -->
-        <h2 class="page-title">Audio Tools Overview</h2>
-        
-        <h3>Synthesis</h3>
-        <h4>Directives</h4>
-        <ul>
-          <li><a href="#wave">Wave</a></li>
-        </ul>
+          <h3>Synthesis</h3>
+          <h4>Directives</h4>
+          <ul>
+            <li><a href="#wave">Wave</a></li>
+          </ul>
+          <article id="wave">
+            <h5>Wave</h5>
+            <p>
+              The wave directive produces a single wave, capable of being modified and turned on or off.
+            </p>
+            <a href="demo/wave.html" class="btn">Demo</a>
+            <h5>Usage</h5>
+            <pre>
+            <code class="language-html">
+&lt;!-- Basic --&gt;
+&lt;wave&gt;&lt;/wave&gt;
 
-        <article id="wave">
-          <h5>Wave</h5>
-          <p>
-            The wave directive produces a single wave, capable of being modified and turned on or off.
-          </p>
-          <a href="demo/wave.html" class="btn">Demo</a>
-          <h5>Attributes</h5>
-          <table>
-            <tr>
-              <th>Attribute</th>
-              <th>Values</th>
-              <th>Example</th>
-            </tr>
-            <tr>
-              <td>freq</td>
-              <td>Any frequency value</td>
-              <td>freq="440.00"</td>
-            </tr>
-            <tr>
-              <td>volume</td>
-              <td>Value between 0.0 and 1.0</td>
-              <td>volume="0.3"</td>
-            </tr>
-            <tr>
-              <td>type</td>
-              <td>sine, square, saw or triangle</td>
-              <td>type="sine"</td>
-            </tr>            
-            <tr>
-              <td>note</td>
-              <td>The note of the wave</td>
-              <td>note="A4"</td>
-            </tr>
-          </table>
-        </article>
-        
-      </main>
+&lt;!-- With Attributes --&gt;
+&lt;wave freq="440" type="square"&gt;&lt;/wave&gt;
+            </code>
+            </pre>
+            <h5>Attributes</h5>
+            <table>
+              <tr>
+                <th>Attribute</th>
+                <th>Values</th>
+                <th>Example</th>
+              </tr>
+              <tr>
+                <td>freq</td>
+                <td>Any frequency value</td>
+                <td>freq="440.00"</td>
+              </tr>
+              <tr>
+                <td>volume</td>
+                <td>Value between 0.0 and 1.0</td>
+                <td>volume="0.3"</td>
+              </tr>
+              <tr>
+                <td>type</td>
+                <td>sine, square, saw or triangle</td>
+                <td>type="sine"</td>
+              </tr>
+              <tr>
+                <td>note</td>
+                <td>The note of the wave</td>
+                <td>note="A4"</td>
+              </tr>
+            </table>
+          </article>
 
+        </main>
+      </div>
     </div>
   </div>
 

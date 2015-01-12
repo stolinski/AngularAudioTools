@@ -9,10 +9,12 @@ function AudioContextSvc() {
     this.context = new AudioContext();
 };
 
-function Wave(AudioContextSvc) {
+function Wave(AudioContextSvc, $templateCache) {
+
+
     var directive = {
         restrict: 'E',
-        templateUrl: '../modules/wave/wave.html',
+        templateUrl: '/modules/synth/wave/wave.html',
         scope: {},
         link: link
     }
@@ -41,7 +43,6 @@ function Wave(AudioContextSvc) {
 
         scope.type = attrs.type || scope.types[0];
 
-        console.log(AudioContextSvc.context);
 
         var init = function() {
 

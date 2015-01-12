@@ -13,5 +13,8 @@
     "rupture": "^0.4.0",
     "typographic": "^1.1.0",
     "stylus-normalize": "^3.0.3"
+  },
+  "devDependencies": {
+    "gulp-ng-templates": "0.0.5"
   }
 }
