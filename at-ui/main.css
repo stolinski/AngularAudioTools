@@ -487,6 +487,20 @@ header .site-title sub {
 header nav {
   float: left;
 }
+.btn,
+a.btn {
+  background: #191a1e;
+  color: #fff;
+  border: solid 4px #2ad9fe;
+  padding: 12px 20px;
+  transition: 0.2s all ease;
+  border-radius: 6px;
+}
+.btn:hover,
+a.btn:hover {
+  background: #2ad9fe;
+  color: #191a1e;
+}
 .page-title {
   text-align: center;
   font-weight: 100;
@@ -568,6 +582,7 @@ pre {
   background: #191a1e;
   color: #fff;
   padding: 20px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 }
 table {
   margin: 20px auto;
